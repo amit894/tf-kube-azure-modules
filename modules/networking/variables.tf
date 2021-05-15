@@ -28,12 +28,3 @@ variable "bastion_subnet_cidr" {
   description = "CIDR of the gateway subnet for hosting"
   default = ["10.0.2.0/24"]
 }
-
-
-variable "tags" {
-  description = "Tags for the resource"
-  default = {
-    environment_name = "dev"
-    owner_email = "amit.894@gmail.com"
-    }
-}
