@@ -28,7 +28,7 @@ resource "azurerm_network_interface" "nic-bastion" {
 }
 
 resource "azurerm_virtual_machine" "main" {
-  name                  = "${var.prefix}-vm"
+  name                  = "${var.prefix}-bastion"
   location              = "${var.location}"
   resource_group_name   = azurerm_resource_group.compute.name
   network_interface_ids = ["${azurerm_network_interface.nic-bastion.id}"]
