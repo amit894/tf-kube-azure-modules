@@ -17,6 +17,14 @@ resource "azurerm_resource_group" "compute" {
 }
 
 
+resource "azurerm_public_ip" "bastion_ip" {
+  name                = "${var.prefix}-bastion-ip"
+  resource_group_name = azurerm_resource_group.compute.name
+  location            = "${var.location}"
+  allocation_method   = "Static"
+}
+
+
 resource "azurerm_network_interface" "nic-bastion" {
   name                = "${var.prefix}-bastion-nic"
   location            = "${var.location}"
@@ -26,6 +34,8 @@ resource "azurerm_network_interface" "nic-bastion" {
     name                          = "${var.prefix}-bastion-ip"
     subnet_id                     = "${var.bastion_subnet_id}"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = "${azurerm_public_ip.bastion_ip.id}"
+
   }
 }
 

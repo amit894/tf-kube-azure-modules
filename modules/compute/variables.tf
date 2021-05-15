@@ -12,3 +12,15 @@ variable "bastion_subnet_id" {
   description = "Region name where rg will be hosted"
   default = ["10.1.2.0/24"]
 }
+
+variable "prefix-master-1" {
+  default = "master-1"
+}
+
+variable "prefix-worker-1" {
+  default = "worker-1"
+}
+
+variable "prefix-worker-2" {
+  default = "worker-2"
+}
