@@ -13,5 +13,7 @@ module "compute" {
   location = local.region
   prefix = local.prefix
   bastion_subnet_id = module.networking.bastion_subnet_id
+  aks_subnet_id = module.networking.aks_subnet_id
+  resource_group_name = module.compute.azurerm_resource_group
 
 }

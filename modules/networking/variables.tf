@@ -28,3 +28,7 @@ variable "bastion_subnet_cidr" {
   description = "CIDR of the gateway subnet for hosting"
   default = ["10.0.2.0/24"]
 }
+
+variable "my_public_ip" {
+  default = "49.207.224.48/32"
+}

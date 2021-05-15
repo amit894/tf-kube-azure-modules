@@ -1,18 +1,5 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source = "hashicorp/azurerm"
-      version = ">= 2.26"
-    }
-  }
-}
-
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_resource_group" "compute" {
-  name     = "${var.prefix}-resources"
+  name     = "${var.prefix}-compute"
   location = "${var.location}"
 }
 
@@ -29,6 +16,7 @@ resource "azurerm_network_interface" "nic-bastion" {
   name                = "${var.prefix}-bastion-nic"
   location            = "${var.location}"
   resource_group_name = azurerm_resource_group.compute.name
+
 
   ip_configuration {
     name                          = "${var.prefix}-bastion-ip"
